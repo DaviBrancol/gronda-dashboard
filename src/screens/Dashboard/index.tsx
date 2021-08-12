@@ -22,12 +22,9 @@ export const DashboardScreen: React.VFC = () => {
 
   return (
     <div className="relative w-full min-h-screen bg-white text-gray-600">
-      <div className="container flex flex-col bg-white min-h-screen mx-auto py-12">
-        <div className="relative flex self-end">
-          <p>Filter by</p>
-          <Filter currentFilter={hook.filters} setFilter={hook.setFilter} />
-        </div>
-        <div className="grid grid-cols-3 gap-10 pt-10">
+      <div className="relative container flex flex-col bg-white min-h-screen mx-auto py-12">
+        <Filter currentFilter={hook.filters} setFilter={hook.setFilter} />
+        <div className="grid grid-cols-3 gap-10 pt-10 relative z-40">
           <DashboardCard
             title="Active sourcing"
             subtitle="Last period"

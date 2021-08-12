@@ -1,6 +1,5 @@
 // Modules
 import { useState } from 'react'
-import cs from 'clsx'
 
 // Application
 import { options } from './options'
@@ -28,16 +27,19 @@ export const Filter: React.VFC<Props> = ({ currentFilter, setFilter }) => {
   }
 
   return (
-    <ul className={cs('relative px-16 ml-10 border border-gray-500')}>
-      {!isOpen ? (
-        <li onClick={() => setOpen(true)}>{findOption()}</li>
-      ) : (
-        options.map((item) => (
-          <li onClick={() => updateFilter(item.value)} key={item.label}>
-            {item.label}
-          </li>
-        ))
-      )}
-    </ul>
+    <div className="pt-10 self-end flex z-50 absolute right-0 top-0">
+      <p>Filter by</p>
+      <ul className="px-16 ml-6 border border-gray-500 bg-white cursor-pointer">
+        {!isOpen ? (
+          <li onClick={() => setOpen(true)}>{findOption()}</li>
+        ) : (
+          options.map((item) => (
+            <li onClick={() => updateFilter(item.value)} key={item.label}>
+              {item.label}
+            </li>
+          ))
+        )}
+      </ul>
+    </div>
   )
 }
