@@ -1,1 +1,5 @@
-export { ExampleProvider, useExample } from './Example'
+// Providers
+export { StatsProvider } from './stats'
+
+// hooks
+export { useStatsContext } from './stats'
