@@ -1,7 +1,7 @@
 module.exports = {
   purge: {
     enabled: process.env.NODE_ENV === 'production',
-    content: ['./src/{components,pages}/**/*.{js,ts,jsx,tsx}'],
+    content: ['./src/{components,pages,screens}/**/*.{js,ts,jsx,tsx}'],
   },
   prefix: '',
   important: false,

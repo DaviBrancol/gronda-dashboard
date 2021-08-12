@@ -1,4 +1,4 @@
-import { EnumExample, IExample } from '@typings/index'
+import { EnumExample, IExample } from 'typings'
 
 export const exampleMockedData: IExample[] = [
   {

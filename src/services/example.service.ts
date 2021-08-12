@@ -1,6 +1,6 @@
 // Application Import
 import { apiClient } from './api'
-import { exampleMockedData } from '@mock/example.mock'
+import { exampleMockedData } from 'mock/example.mock'
 import {
   ExampleListPayload,
   ExampleSinglePayload,
@@ -8,7 +8,7 @@ import {
   IExample,
   ExampleResponse,
   ExampleDeletePayload,
-} from '@typings/index'
+} from 'typings'
 
 export async function fetchExamples(): Promise<IExample[]> {
   return exampleMockedData

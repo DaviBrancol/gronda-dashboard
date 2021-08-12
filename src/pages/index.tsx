@@ -1,2 +1,2 @@
-import { HomeScreen } from '@components/Screens'
-export default HomeScreen
+import { DashboardScreen } from 'screens'
+export default DashboardScreen

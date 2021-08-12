@@ -1,19 +1,3 @@
-import { IconType } from 'react-icons'
-
-// Sidebar Classes
-
-export interface INavItem {
-  Icon: IconType
-  pathname: string
-}
-
-export enum NavItemState {
-  active = 'ACTIVE',
-  normal = 'NORMAL',
-}
-
-// Model Classes Example
-
 export interface IExample {
   id: number
   title: string
@@ -26,8 +10,6 @@ export enum EnumExample {
   normal = 'NORMAL',
   disable = 'DISABLE',
 }
-
-// CRUD Classes Example
 
 export interface ExampleListPayload {
   examples: IExample[]

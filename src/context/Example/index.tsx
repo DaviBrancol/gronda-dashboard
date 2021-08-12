@@ -1,5 +1,6 @@
+// Modules
 import React, { useState, createContext, useEffect } from 'react'
-import { sleep } from '@lib/index'
+import { sleep } from 'utils'
 
 const ExampleContext = createContext(null)
 

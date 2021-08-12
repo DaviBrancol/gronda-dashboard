@@ -88,9 +88,3 @@ body {
   box-sizing: border-box;
   @apply bg-primary-500;
 }
-
-/* Inner Container Component */
-
-.inner-height {
-  min-height: calc(100vh - 5rem);
-}
