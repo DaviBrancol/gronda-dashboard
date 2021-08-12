@@ -3,32 +3,30 @@ import { useState } from 'react'
 
 // Application
 import { options } from './options'
-import { StatsFilter } from 'typings/stats'
+import { CompanySort } from 'typings/companies'
 
 interface Props {
-  currentFilter: StatsFilter
-  setFilter: (filter: StatsFilter) => void
+  sort: CompanySort
+  setSort: (sort: CompanySort) => void
 }
 
-export const Filter: React.VFC<Props> = ({ currentFilter, setFilter }) => {
+export const Sort: React.VFC<Props> = ({ sort, setSort }) => {
   const [isOpen, setOpen] = useState<boolean>(false)
 
   const findOption = () => {
     return options.find(
-      (item) =>
-        item.value.timeUnit === currentFilter.timeUnit &&
-        item.value.timeUnitCount === currentFilter.timeUnitCount
+      (item) => item.value.property === sort.property && item.value.order === sort.order
     ).label
   }
 
-  const updateFilter = (value: StatsFilter) => {
-    setFilter(value)
+  const updateFilter = (value: CompanySort) => {
+    setSort(value)
     setOpen(false)
   }
 
   return (
     <div className="pt-10 self-end flex z-50 absolute right-0 top-0">
-      <p>Filter by</p>
+      <p>Sort by</p>
       <ul className="w-48 text-center ml-6 border border-gray-500 bg-white cursor-pointer">
         {!isOpen ? (
           <li className="w-full" onClick={() => setOpen(true)}>

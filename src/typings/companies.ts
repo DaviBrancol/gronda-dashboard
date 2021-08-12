@@ -14,7 +14,8 @@ export type CompanyResponse = {
 }
 
 export type CompanySort = {
-  property: string
+  property: CompanyProperty
+  order: 'up' | 'down'
 }
 
 export type Company = {
@@ -23,9 +24,9 @@ export type Company = {
   segment: CompanySegment
   contract: string
   renewals: number
-  nps: {
-    avg: number
-    last: number
-    first: number
-  }
+  npsAvg: number
+  npsLast: number
+  npsFirst: number
 }
+
+export type CompanyProperty = keyof Company

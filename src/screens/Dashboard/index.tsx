@@ -2,51 +2,64 @@
 import { useEffect } from 'react'
 
 // Application
-import { useStatsHook } from 'hooks'
+import { useCompanyHook, useStatsHook } from 'hooks'
 
 // Components
-import { DashboardCard, Filter } from 'components'
+import { DashboardCard, Filter, CompanyTable, Sort } from 'components'
 
 export const DashboardScreen: React.VFC = () => {
-  const hook = useStatsHook()
+  const stats = useStatsHook()
+  const companies = useCompanyHook()
 
   // When filters change, refetch the panel data
   useEffect(() => {
-    hook.fetchStats()
-  }, [hook.filters])
+    stats.fetchStats()
+  }, [stats.filters])
+
+  useEffect(() => {
+    companies.fetchStats()
+  }, [])
 
   // Return null until the context mount itself.
-  if (!hook.stats) {
+  if (!stats.stats || !companies.companies) {
     return null
   }
 
   return (
     <div className="relative w-full min-h-screen bg-white text-gray-600">
-      <div className="relative container flex flex-col bg-white min-h-screen mx-auto py-12">
-        <Filter currentFilter={hook.filters} setFilter={hook.setFilter} />
+      <div className="relative container flex flex-col bg-white mx-auto pt-12">
+        <Filter currentFilter={stats.filters} setFilter={stats.setFilter} />
         <div className="grid grid-cols-3 gap-10 pt-10 relative z-40">
           <DashboardCard
             title="Active sourcing"
             subtitle="Last period"
-            data={hook.stats?.activeSource.currentPeriod}
-            subtitleData={hook.stats?.activeSource.lastPeriod}
+            data={stats.stats?.activeSource.currentPeriod}
+            subtitleData={stats.stats?.activeSource.lastPeriod}
             design="one"
           />
           <DashboardCard
             title="Weekly Active"
             subtitle="Last period"
-            data={hook.stats?.weeklyActive.currentPeriod}
-            subtitleData={hook.stats?.weeklyActive.lastPeriod}
+            data={stats.stats?.weeklyActive.currentPeriod}
+            subtitleData={stats.stats?.weeklyActive.lastPeriod}
             design="two"
           />
           <DashboardCard
             title="NPS"
             subtitle="Last period"
-            data={hook.stats?.nps.currentPeriod}
-            subtitleData={hook.stats?.nps.lastPeriod}
+            data={stats.stats?.nps.currentPeriod}
+            subtitleData={stats.stats?.nps.lastPeriod}
             design="three"
           />
         </div>
+      </div>
+      <div className="relative container flex flex-col bg-white mx-auto py-12">
+        <Sort sort={companies.sort} setSort={companies.setSort} />
+        <CompanyTable
+          data={companies.companies}
+          sort={companies.sort}
+          isCritical={companies.critical}
+        />
       </div>
     </div>
   )
