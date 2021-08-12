@@ -1,29 +1,19 @@
-[![N|Solid](https://i.imgur.com/VYaKx4o.png)](https://nodesource.com/products/nsolid)
+# Gronda Dashboard - Testing
 
-# Next.js Boiderplate
-
-Welcome to the brand new boiderplate for React's framework Next.js, last updated at 03/25/2021. You can learn more about the architecture design, modules used, and the testing patterns in the description below. Feel free to give me any feedbacks in my personal email or in the issues of this repository.
-<br />
+Welcome to my test for Gronda Company. Here you will find information about
 <br />
 
-## Versions
+- What was developed in the test.
+- How to run the project and basics of architecture.
+- Additional features beyond the test scope.
 
-This boiderplate has many variations for state managment and styling frameworks, you can choose what best suits your project by checking out the different branches and implementations.
+## About the project
 
-| Branch                | State Manager | Style Framework   | Status            |
-| --------------------- | ------------- | ----------------- | ----------------- |
-| master                | context       | tailwind          | ready to use      |
-| feat/redux-pure       | redux-toolkit | pure css          | under development |
-| feat/redux-sc         | redux-toolkit | styled components | under development |
-| feat/redux-tailwind   | redux-toolkit | tailwind          | under development |
-| feat/zustand-pure     | zustand       | pure css          | under development |
-| feat/zustand-sc       | zustand       | styled components | under development |
-| feat/zustand-tailwind | zustand       | tailwind          | under development |
-| feat/context-pure     | context       | pure css          | ready to use      |
-| feat/context-sc       | context       | styled components | under development |
-| feat/context-tailwind | context       | tailwind          | ready to use      |
-
-Status for this branches will be updated in the changelog.
+All code for this test can be found in branch master. The commits are made with git syntax so it's easy to understand what was made in each commit of this code.
+<br />
+The state manager used for this project is Pure Context with logic hooks and services layer. The architecture will be more detailed below.
+<br />
+The style framework used is Tailwind, the same one that was used in stripe. You may find more in tailwindcss.com
 <br />
 <br />
 
@@ -41,7 +31,17 @@ npm install
 
 # Architecture Patterns
 
-OBS: For more information about an specific pattern, checkout the branch and read its README file.
+The base architecture of this project was developed by me, and consists on the following layers and responsabilities.
+<br />
+Context
+Responsible for the state manager, the context layer will store all the information between the pages and components. It's only accessed by the logical hook, for better mocking experience inside the React Testing Library.
+<br />
+Services
+For accessing the APIs and also the mocks on this project, the services layer will handle all the API logic and parse the data that comes from the API and make it readable to the interfaces defined in React.
+<br />
+Logical Hooks
+Acting as a controller for both layers and the pages as well, the hooks layer will handle the interactions between all other layers and controll their actions and payloads.
+
 <br />
 <br />
 
@@ -50,48 +50,31 @@ OBS: For more information about an specific pattern, checkout the branch and rea
 This project uses the following directory schema inside the src folder, other files outside the src folder are the default Next.js files.
 
 - components
-  - Layout
-  - Screens
-  - UI
-- constants
 - context
 - css
 - hooks
-- lib
 - mock
 - pages
+- screens
 - services
 - typings
+- utils
 
-As a design pattern for code styling, I use the following schema for the creation of anything inside the primary directory schema.
+As a design pattern for code styling, all src root folders have an index.ts / index.tsx file for exporting the content stored inside, as exampled below.
 
-- context
-  - ContextName
-    - contextname.spec.tsx <-- tests here
-    - index.tsx <-- add here
-  - index.tsx <-- export here
-
-<br />
-<br />
-
-## State Flow
-
-This branch uses the React Context for managing the state of the application.
-
-To add a new context to your application, create one following the path style of the code and export the ContextProvider and the useContext inside your context index. You can also create your test files inside the context path.
-
-- context
-  - ContextName
-    - contextname.spec.tsx <-- tests here
-    - index.tsx <-- add here
-  - index.tsx <-- export here
+- components
+  - ExampleOne
+    - index.tsx <-- component implementation
+  - ExampleTwo
+    - index.tsx <-- component implementation
+  - index.tsx <-- export here both
 
 <br />
 <br />
 
 ## Style System
 
-This branch uses the TailwindCSS framework for styling its components. TailwindCSS is a utility-first CSS framework packed with classes like flex, pt-4, text-center and rotate-90 that can be composed to build any design, directly in your markup.
+This code uses the TailwindCSS framework for styling its components. TailwindCSS is a utility-first CSS framework packed with classes like flex, pt-4, text-center and rotate-90 that can be composed to build any design, directly in your markup.
 
 I highly recommend you to use tailwind in your projects, since it saves you a lot of time on creating components and layouts for your application.
 
@@ -127,12 +110,3 @@ This project uses the default PORT 3000
 # or
 http://localhost:3000
 ```
-
-<br />
-<br />
-
-## Copyright
-
-MIT License, Free Software - Boiderplate.
-
-Made by Davi Brancol ❤️
