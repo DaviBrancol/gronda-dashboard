@@ -33,21 +33,21 @@ export const DashboardScreen: React.VFC = () => {
             subtitle="Last period"
             data={hook.stats?.activeSource.currentPeriod}
             subtitleData={hook.stats?.activeSource.lastPeriod}
-            color="primary"
+            design="one"
           />
           <DashboardCard
             title="Weekly Active"
             subtitle="Last period"
             data={hook.stats?.weeklyActive.currentPeriod}
             subtitleData={hook.stats?.weeklyActive.lastPeriod}
-            color="success"
+            design="two"
           />
           <DashboardCard
             title="NPS"
             subtitle="Last period"
             data={hook.stats?.nps.currentPeriod}
             subtitleData={hook.stats?.nps.lastPeriod}
-            color="danger"
+            design="three"
           />
         </div>
       </div>

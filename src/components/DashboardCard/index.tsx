@@ -6,26 +6,29 @@ interface Props {
   data?: number
   subtitle: string
   subtitleData?: number
-  color: 'primary' | 'success' | 'danger'
+  design: 'one' | 'two' | 'three'
 }
 
-export const DashboardCard: React.VFC<Props> = ({ title, data, subtitle, subtitleData, color }) => {
+export const DashboardCard: React.VFC<Props> = ({
+  title,
+  data,
+  subtitle,
+  subtitleData,
+  design,
+}) => {
   return (
-    <div
-      className={cs(
-        'w-full flex flex-col justify-between py-6 pl-6 h-48 rounded-lg text-white font-light text-lg',
-        {
-          'bg-primary-500': color === 'primary',
-          'bg-success-500': color === 'success',
-          'bg-danger-500': color === 'danger',
-        }
-      )}
-    >
-      <p>{title}</p>
-      <p className="text-4xl font-bold">{data}</p>
-      <p>
-        {subtitleData} {subtitle}
-      </p>
+    <div className={cs('relative w-full py-6 pl-6 h-48 rounded-lg text-white font-light text-lg')}>
+      <div className="flex flex-col justify-between relative z-20 h-full">
+        <p>{title}</p>
+        <p className="text-4xl font-bold">{data}</p>
+        <p>
+          {subtitleData} {subtitle}
+        </p>
+      </div>
+      <img
+        src={`/img/dashboard-${design}.png`}
+        className="top-0 left-0 absolute w-full h-full object-cover z-10"
+      />
     </div>
   )
 }
