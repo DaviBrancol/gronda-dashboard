@@ -13,5 +13,6 @@ export const useStatsHook = () => {
   return {
     ...state,
     fetchStats,
+    setFilter: operations.setFilters,
   }
 }

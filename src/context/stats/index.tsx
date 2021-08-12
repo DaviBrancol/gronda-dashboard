@@ -23,8 +23,8 @@ export function StatsProvider(props) {
   const [isLoading, setLoading] = useState(true)
   const [stats, setStats] = useState<Stats>(null)
   const [filters, setFilters] = useState<StatsFilter>({
-    timeUnit: StatsTime.WEEK,
-    timeUnitCount: 1,
+    timeUnit: StatsTime.MONTH,
+    timeUnitCount: 0,
   })
 
   async function mountPage() {

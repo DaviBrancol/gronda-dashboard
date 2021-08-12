@@ -5,7 +5,7 @@ import { useEffect } from 'react'
 import { useStatsHook } from 'hooks'
 
 // Components
-import { DashboardCard } from 'components'
+import { DashboardCard, Filter } from 'components'
 
 export const DashboardScreen: React.VFC = () => {
   const hook = useStatsHook()
@@ -15,12 +15,17 @@ export const DashboardScreen: React.VFC = () => {
     hook.fetchStats()
   }, [hook.filters])
 
+  // Return null until the context mount itself.
+  if (!hook.stats) {
+    return null
+  }
+
   return (
     <div className="relative w-full min-h-screen bg-white text-gray-600">
       <div className="container flex flex-col bg-white min-h-screen mx-auto py-12">
-        <div className="flex self-end">
-          Filter by
-          <div className="px-16 ml-10 border border-gray-500">Last Month</div>
+        <div className="relative flex self-end">
+          <p>Filter by</p>
+          <Filter currentFilter={hook.filters} setFilter={hook.setFilter} />
         </div>
         <div className="grid grid-cols-3 gap-10 pt-10">
           <DashboardCard
