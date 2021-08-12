@@ -4,6 +4,16 @@
 import { StatsFilterRaw, StatsResponse, StatsTime } from 'typings/stats'
 import { mockMonth, mockQuarter, mockWeek, mockYear } from 'mock/stats.mock'
 
+import { CompanyResponse } from 'typings/companies'
+import { mockCompanies } from 'mock/company.mock'
+
+async function get(path: string): Promise<CompanyResponse> {
+  if (path === '/companies') {
+    return mockCompanies
+  }
+  return null
+}
+
 async function post(path: string, payload: any): Promise<StatsResponse | null> {
   if (path === '/stats') {
     const data = payload as StatsFilterRaw
@@ -20,4 +30,4 @@ async function post(path: string, payload: any): Promise<StatsResponse | null> {
   return null
 }
 
-export default { post }
+export default { get, post }
