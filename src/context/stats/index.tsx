@@ -5,7 +5,19 @@ import React, { useState, createContext, useEffect } from 'react'
 import { Stats, StatsFilter, StatsTime } from 'typings/stats'
 import { sleep } from 'utils'
 
-const StatsContext = createContext(null)
+interface StatsContextProps {
+  state: {
+    isLoading: boolean
+    stats: Stats
+    filters: StatsFilter
+  }
+  operations: {
+    setStats: (stats: Stats) => void
+    setFilters: (filters: StatsFilter) => void
+  }
+}
+
+const StatsContext = createContext<StatsContextProps>(null)
 
 export function StatsProvider(props) {
   const [isLoading, setLoading] = useState(true)

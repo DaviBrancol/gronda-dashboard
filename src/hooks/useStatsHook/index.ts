@@ -5,10 +5,13 @@ import { getStats } from 'services/stats.service'
 export const useStatsHook = () => {
   const { state, operations } = useStatsContext()
 
-  const fetchStats = () => {
-    const data = getStats(state.filters)
+  const fetchStats = async () => {
+    const data = await getStats(state.filters)
     operations.setStats(data)
   }
 
-  return fetchStats
+  return {
+    ...state,
+    fetchStats,
+  }
 }

@@ -9,15 +9,15 @@ import 'css/components.css'
 import 'css/utilities.css'
 
 // Application Import
-import { ExampleProvider } from 'context'
+import { StatsProvider } from 'context'
 
 function MyApp({ Component, pageProps, router }: AppProps) {
   return (
     <>
       <DefaultSeo titleTemplate={router.route === '/' ? 'Gronda' : '%s | Gronda'} />
-      <ExampleProvider>
+      <StatsProvider>
         <Component {...pageProps} />
-      </ExampleProvider>
+      </StatsProvider>
     </>
   )
 }
