@@ -27,9 +27,9 @@ export const Filter: React.VFC<Props> = ({ currentFilter, setFilter }) => {
   }
 
   return (
-    <div className="pt-10 self-end flex z-50 absolute right-0 top-0">
+    <div className="pt-10 self-end flex z-50 absolute right-4 top-0 md:right-0">
       <p>Filter by</p>
-      <ul className="w-48 text-center ml-6 border border-gray-500 bg-white cursor-pointer">
+      <ul className="w-32 md:w-48 text-center ml-4 border border-gray-500 bg-white cursor-pointer md:ml-6">
         {!isOpen ? (
           <li className="w-full" onClick={() => setOpen(true)}>
             {findOption()}

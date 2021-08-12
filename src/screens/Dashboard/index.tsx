@@ -27,9 +27,9 @@ export const DashboardScreen: React.VFC = () => {
 
   return (
     <div className="relative w-full min-h-screen bg-white text-gray-600">
-      <div className="relative container flex flex-col bg-white mx-auto pt-12">
+      <div className="relative container flex flex-col bg-white mx-auto pt-12 px-4 md:px-0">
         <Filter currentFilter={stats.filters} setFilter={stats.setFilter} />
-        <div className="grid grid-cols-3 gap-10 pt-10 relative z-40">
+        <div className="grid grid-cols-1 gap-4 pt-10 relative z-40 md:grid-cols-3 md:gap-10">
           <DashboardCard
             title="Active sourcing"
             subtitle="Last period"

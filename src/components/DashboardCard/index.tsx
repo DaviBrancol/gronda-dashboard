@@ -17,10 +17,10 @@ export const DashboardCard: React.VFC<Props> = ({
   design,
 }) => {
   return (
-    <div className={cs('relative w-full py-6 pl-6 h-48 rounded-lg text-white font-light text-lg')}>
+    <div className={cs('relative w-full py-6 pl-6 h-48 rounded-lg text-white text-lg')}>
       <div className="flex flex-col justify-between relative z-20 h-full">
         <p>{title}</p>
-        <p className="text-4xl font-bold">{data}</p>
+        <p className="text-5xl font-bold">{data}</p>
         <p>
           {subtitleData} {subtitle}
         </p>
