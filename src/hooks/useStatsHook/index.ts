@@ -12,6 +12,7 @@ export const useStatsHook = () => {
 
   return {
     ...state,
+    data: state.stats,
     fetchStats,
     setFilter: operations.setFilters,
   }

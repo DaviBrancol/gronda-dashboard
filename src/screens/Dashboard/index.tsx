@@ -21,7 +21,7 @@ export const DashboardScreen: React.VFC = () => {
   }, [])
 
   // Return null until the context mount itself.
-  if (!stats.stats || !companies.companies) {
+  if (!stats.data || !companies.data) {
     return null
   }
 
@@ -33,33 +33,29 @@ export const DashboardScreen: React.VFC = () => {
           <DashboardCard
             title="Active sourcing"
             subtitle="Last period"
-            data={stats.stats?.activeSource.currentPeriod}
-            subtitleData={stats.stats?.activeSource.lastPeriod}
+            data={stats.data?.activeSource.currentPeriod}
+            subtitleData={stats.data?.activeSource.lastPeriod}
             design="one"
           />
           <DashboardCard
             title="Weekly Active"
             subtitle="Last period"
-            data={stats.stats?.weeklyActive.currentPeriod}
-            subtitleData={stats.stats?.weeklyActive.lastPeriod}
+            data={stats.data?.weeklyActive.currentPeriod}
+            subtitleData={stats.data?.weeklyActive.lastPeriod}
             design="two"
           />
           <DashboardCard
             title="NPS"
             subtitle="Last period"
-            data={stats.stats?.nps.currentPeriod}
-            subtitleData={stats.stats?.nps.lastPeriod}
+            data={stats.data?.nps.currentPeriod}
+            subtitleData={stats.data?.nps.lastPeriod}
             design="three"
           />
         </div>
       </div>
       <div className="relative container flex flex-col bg-white mx-auto py-12">
         <Sort sort={companies.sort} setSort={companies.setSort} />
-        <CompanyTable
-          data={companies.companies}
-          sort={companies.sort}
-          isCritical={companies.critical}
-        />
+        <CompanyTable data={companies.data} sort={companies.sort} isCritical={companies.critical} />
       </div>
     </div>
   )

@@ -12,6 +12,7 @@ export const useCompanyHook = () => {
 
   return {
     ...state,
+    data: state.companies,
     fetchStats,
     setSort: operations.setSort,
     setCritical: operations.setCritical,
