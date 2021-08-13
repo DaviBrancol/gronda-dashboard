@@ -31,8 +31,14 @@ export const CompanyTable: React.VFC<Props> = ({ data, sort, isCritical }) => {
       </thead>
       <tbody>
         {data.sort(sortCriteria).map((item) => (
-          <tr className="text-sm border-b border-gray-300 md:text-lg" key={item.id}>
-            <td className="hidden md:table-cell py-4">{item.id}</td>
+          <tr
+            role="table-row"
+            className="text-sm border-b border-gray-300 md:text-lg"
+            key={item.id}
+          >
+            <td role="table-row-id" className="hidden md:table-cell py-4">
+              {item.id}
+            </td>
             <td>{item.name}</td>
             <td className="hidden md:table-cell py-4">{item.segment}</td>
             <td className="hidden md:table-cell py-4">{item.contract}</td>
