@@ -2,7 +2,15 @@
 
 // Application
 import { StatsFilterRaw, StatsResponse, StatsTime } from 'typings/stats'
-import { mockMonth, mockQuarter, mockWeek, mockYear } from 'mock/stats.mock'
+import {
+  mockWeek,
+  mockFirstMonth,
+  mockLastMonth,
+  mockFirstQuarter,
+  mockLastQuarter,
+  mockFirstYear,
+  mockLastYear,
+} from 'mock/stats.mock'
 
 import { CompanyResponse } from 'typings/companies'
 import { mockCompanies } from 'mock/company.mock'
@@ -20,11 +28,11 @@ async function post(path: string, payload: any): Promise<StatsResponse | null> {
     if (data.time_unit === StatsTime.WEEK) {
       return mockWeek
     } else if (data.time_unit === StatsTime.MONTH) {
-      return mockMonth
+      return data.time_unit_count === 1 ? mockFirstMonth : mockLastMonth
     } else if (data.time_unit === StatsTime.QUARTER) {
-      return mockQuarter
+      return data.time_unit_count === 1 ? mockFirstQuarter : mockLastQuarter
     } else {
-      return mockYear
+      return data.time_unit_count === 1 ? mockFirstYear : mockLastYear
     }
   }
   return null

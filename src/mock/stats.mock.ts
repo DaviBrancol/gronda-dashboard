@@ -22,7 +22,7 @@ export const mockWeek: StatsResponse = {
 }
 
 // Mocked response from 1 month.
-export const mockMonth: StatsResponse = {
+export const mockFirstMonth: StatsResponse = {
   data: {
     active_source: {
       current_period: 60,
@@ -40,8 +40,26 @@ export const mockMonth: StatsResponse = {
   status: APIStatus.SUCCESS,
 }
 
+export const mockLastMonth: StatsResponse = {
+  data: {
+    active_source: {
+      current_period: 45,
+      last_period: 35,
+    },
+    weekly_active: {
+      current_period: 60,
+      last_period: 45,
+    },
+    nps: {
+      current_period: 65,
+      last_period: 50,
+    },
+  },
+  status: APIStatus.SUCCESS,
+}
+
 // Mocked response from 1 quarter.
-export const mockQuarter: StatsResponse = {
+export const mockFirstQuarter: StatsResponse = {
   data: {
     active_source: {
       current_period: 120,
@@ -59,8 +77,26 @@ export const mockQuarter: StatsResponse = {
   status: APIStatus.SUCCESS,
 }
 
+export const mockLastQuarter: StatsResponse = {
+  data: {
+    active_source: {
+      current_period: 90,
+      last_period: 75,
+    },
+    weekly_active: {
+      current_period: 120,
+      last_period: 90,
+    },
+    nps: {
+      current_period: 140,
+      last_period: 100,
+    },
+  },
+  status: APIStatus.SUCCESS,
+}
+
 // Mocked response from 1 year.
-export const mockYear: StatsResponse = {
+export const mockFirstYear: StatsResponse = {
   data: {
     active_source: {
       current_period: 240,
@@ -73,6 +109,24 @@ export const mockYear: StatsResponse = {
     nps: {
       current_period: 320,
       last_period: 160,
+    },
+  },
+  status: APIStatus.SUCCESS,
+}
+
+export const mockLastYear: StatsResponse = {
+  data: {
+    active_source: {
+      current_period: 180,
+      last_period: 150,
+    },
+    weekly_active: {
+      current_period: 245,
+      last_period: 185,
+    },
+    nps: {
+      current_period: 280,
+      last_period: 200,
     },
   },
   status: APIStatus.SUCCESS,
