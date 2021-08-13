@@ -10,10 +10,11 @@ Welcome to my test for Gronda Company. Here you will find information about
 ## About the project
 
 All code for this test can be found in branch master. The commits are made with git syntax so it's easy to understand what was made in each commit of this code.
-<br />
+
 The state manager used for this project is Pure Context with logic hooks and services layer. The architecture will be more detailed below.
-<br />
+
 The style framework used is Tailwind, the same one that was used in stripe. You may find more in tailwindcss.com
+
 <br />
 <br />
 
@@ -50,17 +51,17 @@ npm run test
 # Architecture Patterns
 
 The base architecture of this project was developed by me, and consists on the following layers and responsabilities.
-<br />
+
 Context
-<br />
+
 Responsible for the state manager, the context layer will store all the information between the pages and components. It's only accessed by the logical hook, for better mocking experience inside the React Testing Library.
-<br />
+
 Services
-<br />
+
 For accessing the APIs and also the mocks on this project, the services layer will handle all the API logic and parse the data that comes from the API and make it readable to the interfaces defined in React.
-<br />
+
 Logical Hooks
-<br />
+
 Acting as a controller for both layers and the pages as well, the hooks layer will handle the interactions between all other layers and controll their actions and payloads.
 
 <br />
