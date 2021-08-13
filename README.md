@@ -3,7 +3,7 @@
 Welcome to my test for Gronda Company. Here you will find information about
 <br />
 
-- What was developed in the test.
+- What was developed in the test and my opinion for it.
 - How to run the project and basics of architecture.
 - Additional features beyond the test scope.
 
@@ -17,6 +17,12 @@ The style framework used is Tailwind, the same one that was used in stripe. You 
 <br />
 <br />
 
+## About the API
+
+I have found some flaws for this request payload of time_unit and time_unit_count, since you would need many front-end logics for
+calculating this month weeks or this quarter months and so on. It would be prefarable to pass an date range for the API, such as
+20210101 to 20210601. This would make both SQL, API and also the front-end logic pretty easier.
+
 ## Installation
 
 I recommend you to use the package manager yarn, but you may also use npm.
@@ -29,17 +35,32 @@ npm install
 
 <br />
 
+## Testing
+
+For testing, simple run the following command
+
+```sh
+yarn test
+# or
+npm run test
+```
+
+<br />
+
 # Architecture Patterns
 
 The base architecture of this project was developed by me, and consists on the following layers and responsabilities.
 <br />
 Context
+<br />
 Responsible for the state manager, the context layer will store all the information between the pages and components. It's only accessed by the logical hook, for better mocking experience inside the React Testing Library.
 <br />
 Services
+<br />
 For accessing the APIs and also the mocks on this project, the services layer will handle all the API logic and parse the data that comes from the API and make it readable to the interfaces defined in React.
 <br />
 Logical Hooks
+<br />
 Acting as a controller for both layers and the pages as well, the hooks layer will handle the interactions between all other layers and controll their actions and payloads.
 
 <br />
